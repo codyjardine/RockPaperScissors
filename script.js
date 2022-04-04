@@ -1,10 +1,15 @@
 /**
- * Prompt user for choice.
+ * Prompt user for choice, ask again on invalid input.
  * @returns user's choice, made case-insensitive.
  */
 function userPlay() {
-  let userChoice = prompt('Rock, paper, or scissors?');
-  return userChoice.toLowerCase();
+  let userChoice = prompt('Rock, paper, or scissors?').toLowerCase();
+  while ((userChoice != 'rock') || (userChoice != 'paper') || (userChoice != 'scissors')){
+    if ((userChoice === 'rock') || (userChoice === 'paper') || (userChoice === 'scissors')) {
+      return userChoice;
+    }
+    userChoice = prompt('Invalid choice. Rock, paper, or scissors?').toLowerCase();
+  }
 }
 
 /**
@@ -12,8 +17,9 @@ function userPlay() {
  * @returns computer's choice.
  */
 function computerPlay() {
-  let choice = ['rock', 'paper', 'scissors'];
-  return choice[Math.floor(Math.random() * choice.length)];
+  let choice = [ 'rock', 'paper', 'scissors' ];
+  choice = choice[Math.floor(Math.random() * choice.length)];
+  return choice;
 }
 
 /**
@@ -23,78 +29,52 @@ function computerPlay() {
  * @returns "win", "lose", or "draw" based on choices.
  */
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === 'rock') {
-    if (computerSelection === 'rock') {
-      draws += 1;
-      return 'draw';
-    }
-    if (computerSelection === 'scissors') {
-      playerScore += 1;
-      return 'win';
-    }
+  if (playerSelection === computerSelection) {
+    draws += 1;
+    return;
+  } else if (playerSelection === 'rock' && computerSelection === 'paper') {
     computerScore += 1;
-    return 'lose';
-  }
-  if (playerSelection === 'paper') {
-    if (computerSelection === 'paper') {
-      draws += 1;
-      return 'draw';
-    }
-    if (computerSelection === 'rock') {
-      playerScore += 1;
-      return 'win';
-    }
-    computerScore += 1;
-    return 'lose';
-  }
-  if (playerSelection === 'scissors') {
-    if (computerSelection === 'scissors') {
-      draws += 1;
-      return 'draw';
-    }
-    if (computerSelection === 'rock') {
-      computerScore += 1;
-      return 'lose';
-    }
+    return;
+  } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
     playerScore += 1;
-    return 'win';
+    return;
+  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+    playerScore += 1;
+    return;
+  } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+    computerScore += 1;
+    return;
+  } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+    computerScore += 1;
+    return;
+  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+    playerScore += 1;
+    return;
   }
+}  
+
+// Displays the score in the console
+function displayScore() {
+  console.log('Your score: ' + playerScore);
+  console.log('Computer\'s score: ' + computerScore);
+  console.log('Draws: ' + draws);
+  console.log('------------------------');
 }
 
-/**
- * Iterates the game over 5 rounds and outputs current scores.
- */
+// Iterates the game over 5 rounds and outputs current scores.
 function game() {
   let i;
   for (i = 0; i < 5; i += 1) {
     let playerSelection = userPlay();
     let computerSelection = computerPlay();
-    let result = playRound(playerSelection, computerSelection);
+    playRound(playerSelection, computerSelection);
     console.log('Round ' + (1 + i));
-    console.log(
-        'You: ' + playerSelection + ' | Computer: ' + computerSelection);
-    if (result === 'win') {
-      console.log('Your score: ' + playerScore);
-      console.log('Computer\'s score: ' + computerScore);
-      console.log('Draws: ' + draws);
-      console.log('------------------------');
-    } else if (result === 'lose') {
-      console.log('Your score: ' + playerScore);
-      console.log('Computer\'s score: ' + computerScore);
-      console.log('Draws: ' + draws);
-      console.log('------------------------');
-    } else {
-      console.log('Your score: ' + playerScore);
-      console.log('Computer\'s score: ' + computerScore);
-      console.log('Draws: ' + draws);
-      console.log('------------------------');
-    }
+    console.log('You: ' + playerSelection + ' | Computer: ' + computerSelection);
+    displayScore();
   }
 }
 
-/**
- * Determine a winner or tie based on the score.
- */
+// Determine a winner or tie based on the score.
 function checkWinner() {
   if (playerScore > computerScore) {
     console.log('You win!');
@@ -108,6 +88,5 @@ function checkWinner() {
 let playerScore = 0;
 let computerScore = 0;
 let draws = 0;
-
 game();
 checkWinner();
