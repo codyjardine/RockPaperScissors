@@ -1,3 +1,3 @@
-Rock Paper Scissors (WITH UI)  
- 
-Takes input from user and determines a winner over five rounds.
+ROCK, PAPER, SCISSORS
+
+Plays a 5 round game of Rock, Paper, Scissors
