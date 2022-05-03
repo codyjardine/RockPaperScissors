@@ -1,0 +1,205 @@
+/* STICKY FOOTER SUPPORT */
+
+.flex-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+body {
+  background-color: #2e3047;
+  margin: auto;
+  cursor: default;
+  -webkit-touch-callout:none;
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
+
+/* HEADER */
+
+.title {
+  text-align: center;
+  color: #3bba9c;
+  font-family: "Syne Mono";
+  font-weight: bold;
+  font-size: 64px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.6);
+  padding: 20px 0;
+  background-color: #222;
+}
+
+/* HERO */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  color: white;
+  font-family: 'Roboto';
+  align-items: center;
+  gap: 25px;
+}
+
+.head {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.subHead {
+  font-size: 24px;
+}
+
+/* GAME & CONTAINERS */
+
+.containerScoreboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.containerChoice {
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+  border-radius: 10px;
+  padding: 25px;
+  width: 425px;
+
+}
+
+.playerName, .computerName {
+  font-size: 50px;
+  color: #3bba9c;
+  font-family: "Syne Mono";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #222;
+  border-bottom: 2px solid #3bba9c;
+}
+
+.playerScore, .computerScore {
+  color: white;
+  font-family: 'Roboto';
+  font-size: 24px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playerChoices, .computerChoices {
+  display: flex;
+  gap: 20px;
+  background-color: #222;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 10px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #2e3047;
+  width: 125px;
+  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.playerChoices button {
+  cursor: pointer;
+  background-color: #2e3047;
+}
+
+.playerChoices button > span {
+  cursor: pointer;
+}
+
+
+.playerChoices button:hover {
+  transform: scale(1.05);
+}
+
+.text {
+  color: white;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: bold;
+}
+
+.choice {
+  font-size: 64px;
+}
+
+/* FOOTER */
+
+footer {
+  margin-top: auto;
+  color: white;
+  font-family: 'Roboto';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+.git:hover {
+  transform: scale(1.1);
+}
+
+/* MODAL */
+
+.modal {
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 400px;
+  border: 2px solid #3bba9c;
+  gap: 25px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: rgb(24, 24, 24);
+  transform: scale(0);
+}
+
+.modal-title {
+  width: 400px;
+  font-size: 48px;
+  font-family: "Syne Mono";
+  color: #3bba9c;
+  margin: 0px;
+}
+
+.btn-restart {
+  cursor: pointer;
+  width: 150px;
+  height: 75px;
+  padding: 10px 5px;
+  color: white;
+  font-family: 'Roboto';
+  font-size: 24px;
+}
+
+.btn-restart:hover {
+  background-color: #444;
+}
+
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
