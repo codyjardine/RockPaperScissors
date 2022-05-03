@@ -22,7 +22,7 @@ body {
 .title {
   text-align: center;
   color: #3bba9c;
-  font-family: "Syne Mono";
+  font-family: 'Syne Mono';
   font-weight: bold;
   font-size: 64px;
   box-shadow: 0 0 10px rgba(0,0,0,0.6);
@@ -75,7 +75,7 @@ body {
 .playerName, .computerName {
   font-size: 50px;
   color: #3bba9c;
-  font-family: "Syne Mono";
+  font-family: 'Syne Mono';
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,7 +181,7 @@ footer {
 .modal-title {
   width: 400px;
   font-size: 48px;
-  font-family: "Syne Mono";
+  font-family: 'Syne Mono';
   color: #3bba9c;
   margin: 0px;
 }
